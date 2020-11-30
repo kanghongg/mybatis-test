@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 定义当前XML的命名空间 -->
+<mapper namespace="com.kang.mapper.StudentMapper">
+    <!-- ID属性，定义当前select查询的唯一ID；resultType，定义当前查询的返回值类型，如果没有设置别名，则需要写成cn.mybatis.model.Country -->
+<!--    <select id="selectAll" resultType="Student">-->
+<!--        select id, countryname, countrycode from country-->
+<!--    </select>-->
+<!--    //在JDBC中我们通常使用?号作为占位符，而在Mybatis中，我们是使用#{}作为占位符-->
+<!--    //parameterType我们指定了传入参数的类型-->
+<!--    //#{}实际上就是调用了Student属性的get方法-->
+
+    <insert id="add" parameterType="Student">
+        INSERT INTO students (id, name, sal) VALUES (#{id},#{name},#{sal});
+    </insert>
+    <select id="selecById" resultType="com.kang.entity.Student">
+        select * from students where id = #{id}
+    </select>
+
+</mapper>
